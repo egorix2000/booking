@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+  border-spacing: 0px 0px;
+}
+
+.tableDiv {
+  margin-left: 3%;
+  margin-right: 5%;
+}
+
+tr {
+  height: 50px;
+}
+
+td {
+  border: 1px gray solid;
+  text-indent: 5px;
+}
+
+.headerTable{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tableActions{
+  height: 20px;
+}
+
+.tableButtonUpdate{
+  height: 20px;
+  background-color: #00BFFF;
+  color: black;
+  border-radius: 5px;
+  border: 1px #008080 solid;
+}
+
+.tableButtonDelete{
+  height: 20px;
+  background-color: #CD5C5C;
+  color: black;
+  border-radius: 5px;
+  border: 1px #E9967A solid;
+}

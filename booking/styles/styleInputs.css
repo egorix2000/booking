@@ -1,0 +1,46 @@
+.input {
+  padding: 6px;
+  font-size: 15px;
+  text-align: left;
+  border-width: 1px;
+  border-radius: 8px;
+  border-style: solid;
+  display: inline;
+}
+
+.select {
+  width: 200px;
+  font-size: 20px;
+  text-align: left;
+  border-width: 1px;
+  border-radius: 25px;
+  border-style: solid;
+}
+
+.label {
+  display: inline;
+  font-size: 20px;
+}
+
+.inputDiv{
+  margin-top: 20px;
+  width: 40%;
+}
+
+.field {
+  margin-left: 15%;
+  margin-top: 20px;
+}
+
+.headerButtonInput {
+  background-color: #3CB371;
+  font-size: 15px;
+  border-radius: 5px;
+  color: white;
+  border: 1px #40E0D0 solid;
+  height: 30px;
+  width: 20%;
+  float: right;
+  margin-right: 25%;
+  margin-top: 20px;
+}

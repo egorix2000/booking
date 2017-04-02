@@ -1,0 +1,51 @@
+.menu {
+  background-color: #000000;
+  height: 10%;
+  width: 100%;
+}
+
+.item {
+  height: 100%;
+  margin-left: 10px;
+  display:inline-block;
+}
+
+.buttonItem {
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  border: none;
+  font-size: 15px;
+}
+
+.header {
+  margin-top: 30px;
+}
+
+.headerLabel {
+  font-size: 30px;
+  margin-left: 3%;
+  display:inline-block;
+}
+
+.headerDivButton {
+  display:inline-block;
+  float: right;
+  margin-right: 5%;
+}
+
+.headerButton {
+  background-color: #3CB371;
+  font-size: 15px;
+  border-radius: 5px;
+  color: white;
+  border: 1px #40E0D0 solid;
+  height: 40px;
+}
+
+.error {
+  color: red;
+  margin-top: 70px;
+  margin-left: 15%;
+}
