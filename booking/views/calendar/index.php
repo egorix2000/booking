@@ -1,8 +1,5 @@
 <?php
 
-ini_set('display_errors',1);
-error_reporting(E_ALL);
-
 require_once '../../services/BookingService.class.php';
 require_once '../../services/UserFieldService.class.php';
 require_once dirname(__FILE__).'/../../global.inc.php';

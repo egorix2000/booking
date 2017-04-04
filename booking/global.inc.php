@@ -7,15 +7,8 @@ $day = 86400;
 $day2 = 86400;
 $error = "";
 $adminEmail = "";
-$smtp_username = "";
-$smtp_port = "465";
-$smtp_host = "ssl://smtp.yandex.ru";
-$smtp_password = "";
-$smtp_debug = false;
-$smtp_charset = "utf-8";
-$smtp_from = "bookingSite";
 
-//define("SITE_ADMIN", "");
+define("SITE_ADMIN", "");
 
 
 try {

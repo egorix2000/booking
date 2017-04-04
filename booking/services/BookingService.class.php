@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors',1);
-error_reporting(E_ALL);
 
 require_once dirname(__FILE__).'/../repositories/BookingRepository.class.php';
 require_once dirname(__FILE__).'/../entities/BookingEntity.class.php';
@@ -9,7 +7,6 @@ require_once dirname(__FILE__).'/../repositories/CalendarRepository.class.php';
 require_once dirname(__FILE__).'/../repositories/BookingElementRepository.class.php';
 require_once dirname(__FILE__).'/../repositories/UserFieldRepository.class.php';
 require_once dirname(__FILE__).'/../global.inc.php';
-require_once dirname(__FILE__).'/../Mail.class.php';
 
 class BookingService {
 
@@ -139,8 +136,8 @@ class BookingService {
     $entity->beginDate = $dateFrom;
     $count = $this->bookingElementRepository->getElement($elementId)->count;
     if ($this->calendarRepository->checkBooking($elementId, $dateFrom, $bookingDays, $count)) {
-      if (Mail::smtpmail($username, $email, 'Booking', 'Your reservation accepted') &&
-            Mail::smtpmail('admin', $GLOBALS['adminEmail'], 'Booking', 'User: '.$username.' booked element with id: '.$elementId)){
+      if (mail($email, 'Booking', 'Your reservation accepted') &&
+            mail($GLOBALS['adminEmail'], 'Booking', 'User: '.$username.' booked element with id: '.$elementId)){
         $this->calendarRepository->addBooking($elementId, $dateFrom, $bookingDays);
         $this->repository->addBooking($entity);
         return true;

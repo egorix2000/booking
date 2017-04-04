@@ -1,6 +1,4 @@
 <?php
-ini_set('display_errors',1);
-error_reporting(E_ALL);
 
 require_once dirname(__FILE__).'/../repositories/BookingElementRepository.class.php';
 require_once dirname(__FILE__).'/../repositories/CalendarRepository.class.php';
@@ -17,7 +15,7 @@ class BookingElementService {
     $this->calendarRepository = new CalendarRepository();
   }
 
-  public function validateCreate($bookingElementEntity){
+  public function validate($bookingElementEntity, $action){
     $isOk = true;
     $error = "Errors: ";
     if ($bookingElementEntity->name == null || $bookingElementEntity->name == ""){
@@ -36,32 +34,11 @@ class BookingElementService {
       $isOk = false;
       $error .= "<br /> Please, select access from list";
     }
-    $GLOBALS['error'] = $error;
-    return $isOk;
-  }
-
-  public function validateUpdate($bookingElementEntity){
-    $isOk = true;
-    $error = "Errors: ";
-    if ($bookingElementEntity->name == null || $bookingElementEntity->name == ""){
-      $isOk = false;
-      $error .= "<br /> Name can't be empty";
-    }
-    if (strstr($bookingElementEntity->name, "/") !== false){
-      $isOk = false;
-      $error .= "<br /> Name can't contain /";
-    }
-    if (is_int($bookingElementEntity->count) || $bookingElementEntity->count < 1){
-      $isOk = false;
-      $error .= "<br /> Count must be a number > 0";
-    }
-    if (!$this->calendarRepository->checkUpdateElement($bookingElementEntity->id, $bookingElementEntity->count)){
-      $isOk = false;
-      $error .= "<br /> Sory more then ".$bookingElementEntity->count." elements: ".$bookingElementEntity->name." already booked";
-    }
-    if ($bookingElementEntity->access != 0 && $bookingElementEntity->access != 1){
-      $isOk = false;
-      $error .= "<br /> Please, select access from list";
+    if ($action == "update"){
+      if (!$this->calendarRepository->checkUpdateElement($bookingElementEntity->id, $bookingElementEntity->count)){
+        $isOk = false;
+        $error .= "<br /> Sory more then ".$bookingElementEntity->count." elements: ".$bookingElementEntity->name." already booked";
+      }
     }
     $GLOBALS['error'] = $error;
     return $isOk;
@@ -69,7 +46,7 @@ class BookingElementService {
 
   public function addElement($name, $count, $access) {
     $entity = new BookingElementEntity(null, $name, $count, $access);
-    if (!$this->validateCreate($entity)){
+    if (!$this->validate($entity, "create")){
       return false;
     }
     $this->repository->addElement($entity);
@@ -78,7 +55,7 @@ class BookingElementService {
 
   public function updateElement($id, $name, $count, $access) {
     $entity = new BookingElementEntity($id, $name, $count, $access);
-    if (!$this->validateUpdate($entity)){
+    if (!$this->validate($entity, "update")){
       return false;
     }
     $this->repository->updateElement($entity);

@@ -2,12 +2,14 @@
   background-color: #000000;
   height: 10%;
   width: 100%;
+  cursor: pointer;
 }
 
 .item {
   height: 100%;
   margin-left: 10px;
   display:inline-block;
+  cursor: pointer;
 }
 
 .buttonItem {
@@ -17,6 +19,7 @@
   color: white;
   border: none;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .header {

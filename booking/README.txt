@@ -22,6 +22,4 @@ open booking/services/test.php to see example
 
 5) open booking/global.inc.php
 
-6) fill $adminEmail, $smtp_from, $smtp_password, $smtp_username, $smtp_host
-
-7) smtp_username must me from mail.yandex.ru
+6) fill $adminEmail
