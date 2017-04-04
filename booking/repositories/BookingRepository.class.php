@@ -3,12 +3,13 @@
 require_once dirname(__FILE__).'/../entities/BookingEntity.class.php';
 require_once dirname(__FILE__).'/UserFieldRepository.class.php';
 require_once dirname(__FILE__).'/../global.inc.php';
+require_once dirname(__FILE__).'/../PDOSingleton.class.php';
 
 class BookingRepository {
   private $pdo;
 
   public function __construct(){
-    $this->pdo = $GLOBALS['pdo'];
+    $this->pdo = PDOSingleton::getInstance();
   }
 
   public function addColumn($userFieldEntity){

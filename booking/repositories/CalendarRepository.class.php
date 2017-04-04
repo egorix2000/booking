@@ -3,12 +3,13 @@
 require_once dirname(__FILE__).'/../entities/CalendarEntity.class.php';
 require_once dirname(__FILE__).'/../global.inc.php';
 require_once dirname(__FILE__).'/../Date.class.php';
+require_once dirname(__FILE__).'/../PDOSingleton.class.php';
 
 class CalendarRepository {
   private $pdo;
 
   public function __construct(){
-    $this->pdo = $GLOBALS['pdo'];
+    $this->pdo = PDOSingleton::getInstance();
   }
 
   public function deleteBooking($calendarEntity){

@@ -2,12 +2,13 @@
 
 require_once dirname(__FILE__).'/../entities/UserFieldEntity.class.php';
 require_once dirname(__FILE__).'/../global.inc.php';
+require_once dirname(__FILE__).'/../PDOSingleton.class.php';
 
 class UserFieldRepository {
   private $pdo;
 
   public function __construct(){
-    $this->pdo = $GLOBALS['pdo'];
+    $this->pdo = PDOSingleton::getInstance();
   }
 
   public function getLastId(){
