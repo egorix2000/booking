@@ -259,5 +259,12 @@ class BookingRepository {
     }
     return $bookingEntities;
   }
+
+  public function getNextBookingId(){
+    $sql = 'SELECT * FROM sqlite_sequence WHERE name="bookings"';
+    foreach ($this->pdo->query($sql) as $row) {
+      return $row['seq'];
+    }
+  }
 }
  ?>

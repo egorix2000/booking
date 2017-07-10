@@ -135,8 +135,9 @@ class BookingService {
     $dateFrom = strtotime($dateFrom[1].'-'.$dateFrom[0].'-'.$dateFrom[2]);
     $entity->beginDate = $dateFrom;
     $count = $this->bookingElementRepository->getElement($elementId)->count;
+    $nextBookingId = $this->repository->getNextBookingId()+1;
     if ($this->calendarRepository->checkBooking($elementId, $dateFrom, $bookingDays, $count)) {
-      if (mail($email, 'Booking', 'Your reservation accepted') &&
+      if (mail($email, 'Booking', 'Your reservation accepted. To cancel your booking, please click here '.$GLOBALS['path'].'views/bookingViews/cancel.php?id='.$nextBookingId) &&
             mail($GLOBALS['adminEmail'], 'Booking', 'User: '.$username.' booked element with id: '.$elementId)){
         $this->calendarRepository->addBooking($elementId, $dateFrom, $bookingDays);
         $this->repository->addBooking($entity);

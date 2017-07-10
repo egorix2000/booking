@@ -1,3 +1,7 @@
+<?php
+require_once dirname(__FILE__).'/../../global.inc.php';
+?>
+
 <html>
 <head>
   <style>.menu {
@@ -114,8 +118,7 @@
 
     var labels;
 
-    // SET PATH HERE
-    var path = ""; // EXAMPLE: var path = "http://mySite/path/booking/";
+    var path = <?= '"'.$GLOBALS['path'].'"' ?>;
 
     $("#submit").click(function() {
       var url = path + 'views/bookingViews/create1.php?elementId='+$('#elementIds').val()+'&username='+$('#username').val()+'&email='+$('#email').val()+'&phone='+$('#phone').val()+'&dateFrom='+$('#dateFrom').val()+'&bookingDays='+$('#bookingDays').val();

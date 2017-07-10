@@ -1,8 +1,8 @@
-1) open booking/views/bookingViews/create.php
+1) open booking/global.inc.php
 
-2) find var path = ""
+2) fill $adminEmail
 
-3) change to correct path
+3) fill $path
 
 4) use this code to print addBooking form:
 
@@ -19,7 +19,3 @@ echo $h->GetBookingForm();
 
 
 open booking/services/test.php to see example
-
-5) open booking/global.inc.php
-
-6) fill $adminEmail
