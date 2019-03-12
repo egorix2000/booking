@@ -12,6 +12,7 @@ class PDOSingleton {
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             self::$pdo->setAttribute(PDO::ATTR_PERSISTENT, true);
           } catch (PDOException $e){
+              self::$pdo = null;
               echo 'Connection failed. Try later.';
           }
         }
